@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 }
 
@@ -39,11 +38,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.0'
+
+    // Recyclerview
+    def recycler_version = "1.2.1"
+    implementation "androidx.recyclerview:recyclerview:$recycler_version"
 
     // Navigation
-//    def navigation_version = "2.5.0"
-//    implementation "androidx.navigation:navigation-runtime-ktx:$navigation_version"
+    def navigation_version = "2.5.0"
+    implementation "androidx.navigation:navigation-runtime-ktx:$navigation_version"
 
     // Dagger
     def dagger_version = "2.41"
@@ -51,6 +53,15 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    // ViewModel and LiveData
+    def lifecycle_version = '2.2.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    // ButterKnife
+    def butter_knife_version = '10.2.3'
+    implementation "com.jakewharton:butterknife:$butter_knife_version"
+    kapt "com.jakewharton:butterknife-compiler:$butter_knife_version"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

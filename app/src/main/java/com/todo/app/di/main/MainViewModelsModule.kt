@@ -1,6 +1,8 @@
 package com.todo.app.di.main
 
 import androidx.lifecycle.ViewModel
+import com.todo.app.di.ViewModelKey
+import com.todo.app.ui.main.home.HomeViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -8,13 +10,9 @@ import dagger.multibindings.IntoMap
 
 @Module
 open abstract class MainViewModelsModule {
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(ProfileViewModel::class)
-//    abstract fun bindProfileViewModel(viewModel: ProfileViewModel?): ViewModel?
-//
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(PostsViewModel::class)
-//    abstract fun bindPostsViewModel(viewModel: PostsViewModel?): ViewModel?
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun bindHomeViewModel(viewModel: HomeViewModel): ViewModel
 }

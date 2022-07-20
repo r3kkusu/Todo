@@ -6,13 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.ImageButton
 import androidx.annotation.MainThread
+import butterknife.BindView
+import butterknife.ButterKnife
 import com.todo.app.BaseFragment
 import com.todo.app.R
-import kotlinx.android.synthetic.main.fragment_edit.*
 
 
 class EditFragment : BaseFragment() {
+
+    @BindView(R.id.btn_task_delete)
+    lateinit var btnTaskDelete: ImageButton
+
+    @BindView(R.id.btn_task_back)
+    lateinit var btnTaskBack: ImageButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +31,8 @@ class EditFragment : BaseFragment() {
 
     @MainThread
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        ButterKnife.bind(this, view)
 
         val animation: Animation = AnimationUtils.loadAnimation(activity, R.anim.fade_out)
         animation.duration = resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
@@ -46,11 +56,11 @@ class EditFragment : BaseFragment() {
         })
 
 
-        btn_task_delete.setOnClickListener {
+        btnTaskDelete.setOnClickListener {
             view.startAnimation(animation)
         }
 
-        btn_task_back.setOnClickListener {
+        btnTaskBack.setOnClickListener {
             view.startAnimation(animation)
         }
 

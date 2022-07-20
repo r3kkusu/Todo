@@ -1,7 +1,7 @@
 package com.todo.app.helpers
 
 import com.todo.app.BaseFragment
-import com.todo.app.ui.main.UIFragmentWindowEvent
+import com.todo.app.ui.UIFragmentWindowEvent
 
 class FragmentBuilder {
     companion object {

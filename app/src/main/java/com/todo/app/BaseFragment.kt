@@ -1,7 +1,7 @@
 package com.todo.app
 
 import android.content.Context
-import com.todo.app.ui.main.UIFragmentWindowEvent
+import com.todo.app.ui.UIFragmentWindowEvent
 import dagger.android.support.DaggerFragment
 
 open class BaseFragment : DaggerFragment() {
