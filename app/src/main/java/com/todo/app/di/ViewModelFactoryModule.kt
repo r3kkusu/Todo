@@ -1,7 +1,7 @@
 package com.todo.app.di
 
 import androidx.lifecycle.ViewModelProvider
-import com.todo.app.helpers.ViewModelFactory
+import com.todo.app.ui.viewmodels.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 

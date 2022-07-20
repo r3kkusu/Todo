@@ -12,7 +12,9 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.todo.app.BaseFragment
 import com.todo.app.R
-import com.todo.app.ui.main.TaskAdapter
+import com.todo.app.data.Task
+import com.todo.app.ui.main.adapter.TaskAdapter
+import com.todo.app.ui.main.adapter.TaskAdapterEvents
 import com.todo.app.utils.AppUtils
 import javax.inject.Inject
 
@@ -39,7 +41,18 @@ class DoneFragment : BaseFragment() {
 
         ButterKnife.bind(this, view)
 
-        val taskAdapter = TaskAdapter()
+        val taskAdapter = TaskAdapter(object : TaskAdapterEvents {
+            override fun onClickTitle(task: Task) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onClickStatus(task: Task) {
+                task.completed = false
+                viewModel.updateTask(task)
+            }
+
+        })
+
         viewModel = ViewModelProvider(this, viewModelFactory)[DoneViewModel::class.java]
         viewModel.getTaskLiveData().observe(viewLifecycleOwner) {
             taskAdapter.updateTaskList(it)
