@@ -50,5 +50,8 @@ Once you selected your prefere unit test.
 Click run
 
 
+**NOTE**
 
+The app has default stub data. You can remove those stub data in TodoDatabase.kt
+app\src\main\java\com\todo\app\data\TodoDatabase.kt
 
