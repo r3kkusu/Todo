@@ -5,4 +5,7 @@
     <string name="complete">Complete</string>
     <string name="home">Home</string>
     <string name="done">Done</string>
+    <string name="back">Back</string>
+    <string name="task">Task</string>
+    <string name="task_desc">Task Description</string>
 </resources>

@@ -1,16 +1,12 @@
 package com.todo.app
 
-import android.app.Application
-import com.todo.app.di.AppComponent
 import com.todo.app.di.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-class BaseApplication : Application() {
+class BaseApplication : DaggerApplication() {
 
-    val appComponent: AppComponent by lazy {
-        initializeComponent()
-    }
-
-    private fun initializeComponent(): AppComponent {
-        return DaggerAppComponent.factory().create(applicationContext)
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerAppComponent.builder().application(this).build()
     }
 }

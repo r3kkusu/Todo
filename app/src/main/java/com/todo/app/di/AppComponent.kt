@@ -1,11 +1,12 @@
 package com.todo.app.di
 
-import android.content.Context
+import android.app.Application
+import com.todo.app.BaseApplication
 import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
-
 
 
 @Singleton
@@ -15,10 +16,12 @@ import javax.inject.Singleton
         ActivityBuildersModule::class
     ]
 )
-interface AppComponent {
+interface AppComponent : AndroidInjector<BaseApplication> {
 
-    @Component.Factory
-    interface Factory {
-        fun create(@BindsInstance context: Context): AppComponent
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application?): Builder
+        fun build(): AppComponent
     }
 }

@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity" >
+    tools:context=".ui.main.MainActivity" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -21,24 +22,30 @@
             <TextView
                 android:id="@+id/txt_header"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/dim_50dp"
                 android:gravity="center_vertical"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
                 android:text="@string/incomplete"
+                android:textColor="@color/purple_500"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/btn_add_task"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:backgroundTint="@color/purple_500"
+                android:layout_width="@dimen/dim_50dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:background="@null"
                 android:contentDescription="@string/add_task"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_add_task_24"
+                app:tint="@color/purple_500"
                 tools:ignore="ImageContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -62,4 +69,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/dialog_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+    </FrameLayout>
 </FrameLayout>

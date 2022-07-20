@@ -4,7 +4,7 @@ import com.todo.app.di.main.MainFragmentBuildersModule
 import com.todo.app.di.main.MainModule
 import com.todo.app.di.main.MainScope
 import com.todo.app.di.main.MainViewModelsModule
-import com.todo.app.ui.MainActivity
+import com.todo.app.ui.main.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
