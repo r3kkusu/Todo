@@ -21,8 +21,10 @@ import com.todo.app.utils.AppUtils
 import javax.inject.Inject
 
 class DoneFragment constructor(
-    private val listener: EditTaskHandler
+    private val listener: EditTaskHandler?
 ) : BaseFragment() {
+
+    constructor() : this(null)
 
     @BindView(R.id.recycler_task_list)
     lateinit var recyclerTaskList : RecyclerView
@@ -46,7 +48,7 @@ class DoneFragment constructor(
 
         val taskAdapter = TaskAdapter(object : TaskAdapterEvents {
             override fun onClickTitle(task: Task) {
-                listener.openEditFragment(task)
+                listener?.openEditFragment(task)
             }
 
             override fun onClickStatus(task: Task) {

@@ -22,8 +22,10 @@ import javax.inject.Inject
 
 class EditFragment constructor(
     private var task: Task?,
-    windowsListener: UIFragmentWindowEvents
+    windowsListener: UIFragmentWindowEvents?
 ) : BaseFragment(windowsListener) {
+
+    constructor() : this(null, null)
 
     @BindView(R.id.btn_task_back)
     lateinit var btnTaskBack: ImageButton
