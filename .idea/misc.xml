@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rexp/.gradle/caches/transforms-3/43699aa8fd20be8bf6165d23296034cd/transformed/material-1.6.1/res/drawable/ic_m3_chip_close.xml" value="0.103" />
         <entry key="..\:/Users/rexp/OneDrive/Documents/Android Studio Bumblebee/Todo/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/rexp/OneDrive/Documents/Android Studio Bumblebee/Todo/app/src/main/res/layout/fragment_done.xml" value="0.264" />
         <entry key="..\:/Users/rexp/OneDrive/Documents/Android Studio Bumblebee/Todo/app/src/main/res/layout/fragment_edit.xml" value="0.2152777777777778" />
@@ -11,6 +12,7 @@
         <entry key="..\:/Users/rexp/OneDrive/Documents/Android Studio Bumblebee/Todo/app/src/main/res/layout/task_item.xml" value="0.264" />
         <entry key="..\:/Users/rexp/OneDrive/Documents/Android Studio Bumblebee/Todo/app/src/main/res/menu/menu.xml" value="0.17777777777777778" />
         <entry key="..\:/Users/rexp/OneDrive/Documents/Android Studio Bumblebee/Todo/app/src/main/res/xml/anim.xml" value="0.1" />
+        <entry key="..\:/Users/rexp/OneDrive/Documents/Github/Todo/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/rexp/OneDrive/Documents/Github/Todo/app/src/main/res/layout/fragment_edit.xml" value="0.264" />
       </map>
     </option>

@@ -1,23 +1,22 @@
 package com.todo.app
 
 import android.content.Context
-import com.todo.app.ui.UIFragmentWindowEvent
+import com.todo.app.ui.UIFragmentWindowEvents
 import dagger.android.support.DaggerFragment
 
-open class BaseFragment : DaggerFragment() {
-    private var listener: UIFragmentWindowEvent? = null
+open class BaseFragment constructor(
+    private val windowsListener: UIFragmentWindowEvents?
+    ) : DaggerFragment() {
 
-    fun setOnDetachListener(listener: UIFragmentWindowEvent) {
-        this.listener = listener
-    }
+    constructor() : this(null)
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        listener?.onAttach()
+        windowsListener?.onWindowOpen()
     }
 
     override fun onDetach() {
         super.onDetach()
-        listener?.onDetach()
+        windowsListener?.onWindowClosed()
     }
 }

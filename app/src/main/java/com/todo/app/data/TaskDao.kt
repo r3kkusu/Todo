@@ -3,11 +3,15 @@ package com.todo.app.data
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
+
 @Dao
 interface TaskDao {
 
     @Query("SELECT * FROM task_table WHERE (completed == :completed)")
     fun getTasks(completed: Boolean): Flow<List<Task>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(order: List<Task>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(task: Task)

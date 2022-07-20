@@ -9,6 +9,7 @@ import dagger.android.support.DaggerFragment
 class AppUtils {
     companion object {
         val TAG = "AppUtils"
+
         fun replaceFragment(activity: FragmentActivity, fragment: DaggerFragment, animations: IntArray, fragmentView: Int) {
             Log.d(TAG, "replaceFragment: " + fragment.javaClass.name)
             val transaction = activity.supportFragmentManager

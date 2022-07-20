@@ -10,7 +10,7 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 
-@Database(entities = [Task::class], version = 1)
+@Database(entities = [Task::class], version = 2)
 abstract class TodoDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
@@ -27,13 +27,13 @@ abstract class TodoDatabase : RoomDatabase() {
 
             // Dummy task
             applicationScope.launch {
-                dao.insert(Task("Task 1", "Wash the dishes", completed = true))
+                dao.insert(Task("Buy groceries", "Buy groceries for mom and lola", completed = true))
+                dao.insert(Task("Prepare Dinner", "1. Adobo manok\n2. Fried chicken"))
+                dao.insert(Task("Take Kids to School", "July 25, 2022 kids first day in school", completed = true))
+                dao.insert(Task("Car Maintenance", "1. Brakes\n2. Battery\n3. Coolant", completed = true))
+                dao.insert(Task("Task 1", "Movie Night", completed = true))
                 dao.insert(Task("Task 2", "Do the laundry"))
-                dao.insert(Task("Task 3", "Buy groceries", completed = true))
-                dao.insert(Task("Task 4", "Prepare food", completed = true))
-                dao.insert(Task("Task 5", "Call mom"))
-                dao.insert(Task("Task 6", "Visit grandma", completed = true))
-                dao.insert(Task("Task 7", "Repair my bike"))
+                dao.insert(Task("Task 3", "Repair my bike"))
             }
         }
     }

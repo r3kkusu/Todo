@@ -14,7 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/header_view"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/dim_60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -22,31 +22,35 @@
             <TextView
                 android:id="@+id/txt_header"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dim_50dp"
+                android:layout_height="@dimen/dim_60dp"
                 android:gravity="center_vertical"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/incomplete"
                 android:textColor="@color/purple_500"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageButton
-                android:id="@+id/btn_add_task"
-                android:layout_width="@dimen/dim_50dp"
-                android:layout_height="@dimen/dim_50dp"
-                android:background="@null"
-                android:contentDescription="@string/add_task"
+            <TextView
+                android:id="@+id/txt_add_task"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dim_60dp"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/add_task"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                app:drawableEndCompat="@drawable/ic_baseline_add_task_24"
+                app:drawableTint="@color/purple_500"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_baseline_add_task_24"
-                app:tint="@color/purple_500"
-                tools:ignore="ImageContrastCheck" />
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout

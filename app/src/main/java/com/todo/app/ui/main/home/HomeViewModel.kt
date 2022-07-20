@@ -8,7 +8,6 @@ class HomeViewModel @Inject constructor(
     private val taskDao: TaskDao,
 ) : BaseViewModel(taskDao) {
 
-
     fun getUnCompleteTask() {
         super.getTasks(false)
     }

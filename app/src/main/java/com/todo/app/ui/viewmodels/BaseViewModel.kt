@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.todo.app.data.Task
 import com.todo.app.data.TaskDao
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.jetbrains.annotations.NotNull
 
@@ -16,7 +17,7 @@ open class BaseViewModel constructor(
     protected val taskList = MutableLiveData<List<Task>>()
 
     fun getTasks(completed: Boolean) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
 
             taskDao.getTasks(completed).collect() {
                 taskList.postValue(it)
@@ -27,17 +28,27 @@ open class BaseViewModel constructor(
     fun deleteTask(position: Int) {
         if (taskList.value != null || taskList.value!!.size <= position) {
             val task = taskList.value!![position]
-            viewModelScope.launch {
+            viewModelScope.launch(Dispatchers.IO) {
                 taskDao.delete(task)
             }
         }
     }
 
+    fun insertTasks(task: List<Task>) {
+        viewModelScope.launch(Dispatchers.IO) {
+            taskDao.insertAll(task)
+        }
+    }
+
+    fun insertTask(task: Task) {
+        viewModelScope.launch(Dispatchers.IO) {
+            taskDao.insert(task)
+        }
+    }
+
     fun updateTask(task: Task) {
-        if (task != null) {
-            viewModelScope.launch {
-                taskDao.update(task)
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            taskDao.update(task)
         }
     }
 

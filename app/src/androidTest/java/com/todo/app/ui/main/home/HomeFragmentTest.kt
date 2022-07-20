@@ -1,6 +1,5 @@
 package com.todo.app.ui.main.home
 
-import android.view.View
 import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.launchFragmentInContainer
@@ -13,15 +12,16 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.todo.app.BaseFragment
 import com.todo.app.R
+import com.todo.app.data.Task
 import com.todo.app.di.AppComponent
 import com.todo.app.di.main.MainViewModelsModule
-import com.todo.app.ui.UIFragmentWindowEvent
+import com.todo.app.ui.UIFragmentWindowEvents
+import com.todo.app.ui.main.EditTaskHandler
 import dagger.Component
 import junit.framework.TestCase
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
@@ -41,16 +41,24 @@ internal class HomeFragmentTest : TestCase() {
 //        var vmFactory = ViewModelFactory(viewModels)
 
 //        vmFactory.create(HomeViewModel::class.java)
+
+        val editTaskHandler = object : EditTaskHandler {
+            override fun openEditFragment(task: Task?) {
+
+            }
+        }
+
+        val windowsListener = object : UIFragmentWindowEvents {
+            override fun onWindowOpen() {
+            }
+
+            override fun onWindowClosed() {
+            }
+        }
+
         return launchFragmentInContainer(factory = object : FragmentFactory() {
             override fun instantiate(classLoader: ClassLoader, className: String): BaseFragment {
-                val fragment = HomeFragment()
-                fragment.setOnDetachListener (object : UIFragmentWindowEvent {
-                    override fun onAttach() = Unit
-
-                    override fun onDetach() {
-                    }
-                })
-                return fragment
+                return HomeFragment(editTaskHandler, windowsListener)
 //                return HomeFragment()
 //                    .apply {
 //                    viewModelFactory = vmFactory
