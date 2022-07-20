@@ -21,10 +21,9 @@ import com.todo.app.utils.AppUtils
 import javax.inject.Inject
 
 
-class HomeFragment constructor(
-    private val listener: EditTaskHandler,
-    private val windowsListener: UIFragmentWindowEvents
-    ) : BaseFragment(windowsListener) {
+class HomeFragment(
+    private val listener: EditTaskHandler
+    ) : BaseFragment() {
 
     @BindView(R.id.recycler_task_list)
     lateinit var recyclerTaskList : RecyclerView

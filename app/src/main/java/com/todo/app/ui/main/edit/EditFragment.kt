@@ -16,12 +16,14 @@ import butterknife.ButterKnife
 import com.todo.app.BaseFragment
 import com.todo.app.R
 import com.todo.app.data.Task
+import com.todo.app.ui.UIFragmentWindowEvents
 import javax.inject.Inject
 
 
 class EditFragment constructor(
-    private var task: Task?
-) : BaseFragment() {
+    private var task: Task?,
+    windowsListener: UIFragmentWindowEvents
+) : BaseFragment(windowsListener) {
 
     @BindView(R.id.btn_task_back)
     lateinit var btnTaskBack: ImageButton

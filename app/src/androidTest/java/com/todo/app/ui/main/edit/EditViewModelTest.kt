@@ -50,7 +50,6 @@ class EditViewModelTest : TestCase() {
         viewModel.insertTask(task)
         viewModel.getTasks(false)
 
-
         val dbTask = viewModel.getTaskLiveData().getOrAwaitValue()
         assertTrue(dbTask.isNotEmpty() && isEqualTaskObject(dbTask.first(), task))
     }

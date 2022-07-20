@@ -1,7 +1,6 @@
 package com.todo.app.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -64,15 +63,13 @@ class MainActivity : DaggerAppCompatActivity(),
             fragmentId = fragmentID
             when(fragmentID) {
                 R.id.home -> {
-                    Log.d(TAG, "setupNavFragment: Navigate to HomeFragment")
                     headerTitle.text = getString(R.string.incomplete)
-                    AppUtils.replaceFragment(this, HomeFragment(this, this),
+                    AppUtils.replaceFragment(this, HomeFragment(this),
                         AnimationUtils.ANIM_LIFT_TO_RIGHT, R.id.fragment_view)
                 }
                 R.id.done -> {
-                    Log.d(TAG, "setupNavFragment: Navigate to DoneFragment")
                     headerTitle.text = getString(R.string.completed)
-                    AppUtils.replaceFragment(this, DoneFragment(this, this),
+                    AppUtils.replaceFragment(this, DoneFragment(this),
                         AnimationUtils.ANIM_RIGHT_TO_LIFE, R.id.fragment_view)
                 }
             }
@@ -88,7 +85,6 @@ class MainActivity : DaggerAppCompatActivity(),
     }
 
     override fun openEditFragment(task: Task?) {
-        Log.d(TAG, "openEditFragment: Open EditFragment")
-        AppUtils.replaceFragment(this, EditFragment(task), AnimationUtils.ANIM_FADE_IN, R.id.dialog_fragment)
+        AppUtils.replaceFragment(this, EditFragment(task, this), AnimationUtils.ANIM_FADE_IN, R.id.dialog_fragment)
     }
 }
