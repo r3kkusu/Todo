@@ -2,6 +2,7 @@ package com.todo.app.di.main
 
 import androidx.lifecycle.ViewModel
 import com.todo.app.di.ViewModelKey
+import com.todo.app.ui.main.done.DoneViewModel
 import com.todo.app.ui.main.home.HomeViewModel
 import dagger.Binds
 import dagger.Module
@@ -15,4 +16,9 @@ open abstract class MainViewModelsModule {
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
     abstract fun bindHomeViewModel(viewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DoneViewModel::class)
+    abstract fun bindDoneViewModel(viewModel: DoneViewModel): ViewModel
 }

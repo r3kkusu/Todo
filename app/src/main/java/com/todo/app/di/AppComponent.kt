@@ -14,7 +14,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         ActivityBuildersModule::class,
-        ViewModelFactoryModule::class
+        ViewModelFactoryModule::class,
+        AppModule::class
     ]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {
@@ -22,7 +23,7 @@ interface AppComponent : AndroidInjector<BaseApplication> {
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun application(application: Application?): Builder
+        fun application(application: Application): Builder
         fun build(): AppComponent
     }
 }

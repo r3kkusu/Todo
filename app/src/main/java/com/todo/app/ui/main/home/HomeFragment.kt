@@ -6,17 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.todo.app.BaseFragment
 import com.todo.app.R
-import com.todo.app.data.model.Task
+import com.todo.app.data.Task
 import com.todo.app.ui.main.TaskAdapter
 import com.todo.app.utils.AppUtils
 import java.time.LocalDate
@@ -45,34 +43,21 @@ class HomeFragment : BaseFragment() {
 
         ButterKnife.bind(this, view)
 
+        val taskAdapter = TaskAdapter()
         viewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
-
-        val taskList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            arrayListOf(
-                Task("Task 1", "Description 1", LocalDate.now(), false),
-                Task("Task 2", "Description 2", LocalDate.now(), false),
-                Task("Task 3", "Description 3", LocalDate.now(), false),
-                Task("Task 4", "Description 4", LocalDate.now(), false),
-                Task("Task 5", "Description 5", LocalDate.now(), false),
-                Task("Task 6", "Description 6", LocalDate.now(), false),
-                Task("Task 7", "Description 7", LocalDate.now(), false),
-                Task("Task 8", "Description 8", LocalDate.now(), false),
-                Task("Task 9", "Description 9", LocalDate.now(), false),
-                Task("Task 0", "Description 0", LocalDate.now(), false),
-            )
-        } else {
-            arrayListOf()
+        viewModel.getTaskLiveData().observe(viewLifecycleOwner) {
+            taskAdapter.updateTaskList(it)
+            taskAdapter.notifyDataSetChanged()
         }
+        viewModel.getUnCompleteTask()
 
-        val taskAdapter = TaskAdapter(taskList)
         recyclerTaskList.layoutManager = LinearLayoutManager(activity)
         recyclerTaskList.adapter = taskAdapter
 
 
-        val itemTouchHelper = AppUtils.itemTouchHelperBuilder { viewHolder, direction ->
-            Toast.makeText(activity, "Deleted Item", Toast.LENGTH_LONG).show()
-            // remove/delete view model here
-            // -----------------------------
+        val itemTouchHelper = AppUtils.itemTouchHelperBuilder { _, direction ->
+            Toast.makeText(activity, "Task Deleted! ", Toast.LENGTH_LONG).show()
+            viewModel.deleteTask(direction)
             taskAdapter.notifyDataSetChanged()
         }
 

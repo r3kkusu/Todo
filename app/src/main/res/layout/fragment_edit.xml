@@ -26,12 +26,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/btn_task_delete"
+            android:id="@+id/btn_task_completed"
             android:layout_width="@dimen/dim_48dp"
             android:layout_height="@dimen/dim_48dp"
             android:background="@null"
             android:contentDescription="@string/back"
-            android:src="@drawable/ic_baseline_delete_24"
+            android:src="@drawable/ic_baseline_check_circle_outline_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/purple_500" />
@@ -48,7 +48,7 @@
             android:text="@string/task"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/btn_task_delete"
+            app:layout_constraintEnd_toStartOf="@+id/btn_task_completed"
             app:layout_constraintStart_toEndOf="@+id/btn_task_back"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="DuplicateSpeakableTextCheck" />

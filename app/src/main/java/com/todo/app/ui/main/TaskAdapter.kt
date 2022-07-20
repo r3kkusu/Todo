@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.todo.app.R
-import com.todo.app.data.model.Task
+import com.todo.app.data.Task
 
-class TaskAdapter(private val task: ArrayList<Task>) :
-    RecyclerView.Adapter<TaskAdapter.TaskHolder>() {
+class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskHolder>() {
+
+    private var taskList: List<Task> = listOf()
 
     class TaskHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
 
@@ -41,8 +42,8 @@ class TaskAdapter(private val task: ArrayList<Task>) :
     }
 
     override fun onBindViewHolder(holder: TaskHolder, position: Int) {
-        holder.title.text = "Task ${task[position].title}"
-        if (task[position].isCompleted) {
+        holder.title.text = taskList[position].title
+        if (taskList[position].completed) {
             holder.status.setImageResource(R.drawable.ic_baseline_check_circle_24)
         } else {
             holder.status.setImageResource(R.drawable.ic_baseline_check_circle_outline_24)
@@ -50,6 +51,10 @@ class TaskAdapter(private val task: ArrayList<Task>) :
     }
 
     override fun getItemCount(): Int {
-        return task.size
+        return taskList.size
+    }
+
+    fun updateTaskList(tasks: List<Task>) {
+        taskList = tasks
     }
 }

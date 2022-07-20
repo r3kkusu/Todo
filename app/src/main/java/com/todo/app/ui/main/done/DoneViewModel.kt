@@ -1,4 +1,4 @@
-package com.todo.app.ui.main.home
+package com.todo.app.ui.main.done
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,16 +9,16 @@ import com.todo.app.data.TaskDao
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(
+class DoneViewModel @Inject constructor(
     private val taskDao: TaskDao,
 ) : ViewModel() {
 
     val taskList = MutableLiveData<List<Task>>()
 
-    fun getUnCompleteTask() {
+    fun getCompleteTask() {
         viewModelScope.launch {
 
-            taskDao.getTasks(false).collect() {
+            taskDao.getTasks(true).collect() {
                 taskList.postValue(it)
             }
         }

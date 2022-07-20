@@ -16,7 +16,7 @@ import com.todo.app.R
 
 class EditFragment : BaseFragment() {
 
-    @BindView(R.id.btn_task_delete)
+    @BindView(R.id.btn_task_completed)
     lateinit var btnTaskDelete: ImageButton
 
     @BindView(R.id.btn_task_back)
