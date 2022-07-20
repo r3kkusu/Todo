@@ -18,7 +18,7 @@ class AppUtils {
             transaction.commit()
         }
 
-        fun itemTouchHelperBuilder(callbackAction: (viewHolder: RecyclerView.ViewHolder, direction: Int) -> Unit) : ItemTouchHelper {
+        fun itemTouchHelperBuilder(callbackAction: (viewHolder: RecyclerView.ViewHolder) -> Unit) : ItemTouchHelper {
             return ItemTouchHelper(
                 object : ItemTouchHelper.SimpleCallback(0,
                     ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
@@ -31,7 +31,7 @@ class AppUtils {
                     }
 
                     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                        callbackAction(viewHolder, direction)
+                        callbackAction(viewHolder)
                     }
                 })
         }

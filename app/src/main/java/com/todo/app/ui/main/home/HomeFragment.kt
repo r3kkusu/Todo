@@ -55,9 +55,9 @@ class HomeFragment : BaseFragment() {
         recyclerTaskList.adapter = taskAdapter
 
 
-        val itemTouchHelper = AppUtils.itemTouchHelperBuilder { _, direction ->
+        val itemTouchHelper = AppUtils.itemTouchHelperBuilder { viewHolder ->
             Toast.makeText(activity, "Task Deleted! ", Toast.LENGTH_LONG).show()
-            viewModel.deleteTask(direction)
+            viewModel.deleteTask(viewHolder.layoutPosition)
             taskAdapter.notifyDataSetChanged()
         }
 

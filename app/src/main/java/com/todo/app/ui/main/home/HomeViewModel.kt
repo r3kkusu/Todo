@@ -25,7 +25,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun deleteTask(position: Int) {
-        if (taskList.value != null || taskList.value!!.size >= position) {
+        if (taskList.value != null || taskList.value!!.size <= position) {
             val task = taskList.value!![position]
             viewModelScope.launch {
                 taskDao.delete(task)
