@@ -26,37 +26,38 @@ See the quick video below
 To run the project, you need to install android studio
 https://developer.android.com/studio
 
-Once done downloading and installing android studio. Open the project by selecting the Todo app root folder
+After downloading and installing android studio. Open the project by selecting the Todo app root folder
 
 ![Screenshot 2022-07-21 000622](https://user-images.githubusercontent.com/8465561/180030124-38866d46-41c2-4f6a-8887-fdb16b074109.png)
 
 Wait until the project is fully loaded.
 
-Run the project by first selecting the emulator device or connecting you android phone to you PC.
+Run the project by first selecting the emulator device or connecting an android phone to the PC/MAC.
 
-How to creating emulator in Android Studio: 
+Instructions to create emulator in Android Studio: 
 https://developer.android.com/studio/run/managing-avds
 
-How to enable device debugging and connecting android device:
+Instructions to enable device debugging and connecting android device:
 https://developer.android.com/studio/run/device
 
-Once your emulator or device is setup. Click the Run button
+After setting up the emulator or device. Click the Run button
 
 ![Screenshot 2022-07-21 000734](https://user-images.githubusercontent.com/8465561/180030847-ebf8e3df-7e01-4a26-b628-faac11ae6aca.png)
 
 **Running Unit Test**
 
-To run the unit test. Just select any test options on app configuration near the build icon
+To run the unit test. Select any test options on app configuration near the build icon
+The unit test focuses on the apps business logic and database (ViewModel and TodoDatabase).
 
 ![testing_options](https://user-images.githubusercontent.com/8465561/180031503-a581edc3-2de5-4f1a-a1c9-8d37cb4688e4.png)
 
-After selecting the prefered unit test.
+After selecting the preferred unit test.
 
 Click Run
 
 
 **NOTE**
 
-The app has default stub data. You can remove the stub data in TodoDatabase.kt
+The app has default stub data. To remove the stub data. Goto TodoDatabase.kt
 app\src\main\java\com\todo\app\data\TodoDatabase.kt
 

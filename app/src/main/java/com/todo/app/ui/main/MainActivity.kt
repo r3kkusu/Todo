@@ -63,12 +63,12 @@ class MainActivity : DaggerAppCompatActivity(),
             fragmentId = fragmentID
             when(fragmentID) {
                 R.id.home -> {
-                    headerTitle.text = getString(R.string.incomplete)
+                    headerTitle.text = getString(R.string.todo_emoji)
                     AppUtils.replaceFragment(this, HomeFragment(this),
                         AnimationUtils.ANIM_LIFT_TO_RIGHT, R.id.fragment_view)
                 }
                 R.id.done -> {
-                    headerTitle.text = getString(R.string.completed)
+                    headerTitle.text = getString(R.string.done_emoji)
                     AppUtils.replaceFragment(this, DoneFragment(this),
                         AnimationUtils.ANIM_RIGHT_TO_LIFE, R.id.fragment_view)
                 }

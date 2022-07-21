@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Todo</string>
     <string name="add_task">Add Task</string>
-    <string name="incomplete">Incomplete</string>
-    <string name="completed">Completed</string>
+    <string name="todo_emoji">TODO 📝</string>
+    <string name="done_emoji">Done 🎉</string>
     <string name="home">Home</string>
     <string name="done">Done</string>
     <string name="back">Back</string>
