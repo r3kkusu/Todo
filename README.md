@@ -1,8 +1,12 @@
 Hello 👋
 
-This project is a simple todo app that user can create task, mark the task as complete or incomplete, and delete task from the list.
+This project is a simple todo application for task management. 
+Key features of the app are:
+1. Creating task
+2. Marking the task as complete or incomplete
+3. Delete task from the list.
 
-Key technologies to develop this application
+Technologies to develop this application
 1. Dagger2
 2. Kotlin flow
 3. Room database
@@ -29,29 +33,30 @@ Once done downloading and installing android studio. Open the project by selecti
 Wait until the project is fully loaded.
 
 Run the project by first selecting the emulator device or connecting you android phone to you PC.
-Creating emulator in Android Studio
+
+How to creating emulator in Android Studio: 
 https://developer.android.com/studio/run/managing-avds
 
-Connecting android device
+How to enable device debugging and connecting android device:
 https://developer.android.com/studio/run/device
 
-Once your emulator or device is setup. Click the run button
+Once your emulator or device is setup. Click the Run button
 
 ![Screenshot 2022-07-21 000734](https://user-images.githubusercontent.com/8465561/180030847-ebf8e3df-7e01-4a26-b628-faac11ae6aca.png)
 
 **Running Unit Test**
 
-To run the unit test. Just select any options you on app configuration near the build icon
+To run the unit test. Just select any test options on app configuration near the build icon
 
 ![testing_options](https://user-images.githubusercontent.com/8465561/180031503-a581edc3-2de5-4f1a-a1c9-8d37cb4688e4.png)
 
-Once you selected your prefere unit test.
+After selecting the prefered unit test.
 
-Click run
+Click Run
 
 
 **NOTE**
 
-The app has default stub data. You can remove those stub data in TodoDatabase.kt
+The app has default stub data. You can remove the stub data in TodoDatabase.kt
 app\src\main\java\com\todo\app\data\TodoDatabase.kt
 
