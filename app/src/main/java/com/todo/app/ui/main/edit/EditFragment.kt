@@ -1,5 +1,6 @@
 package com.todo.app.ui.main.edit
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.MainThread
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import butterknife.BindView
 import butterknife.ButterKnife
@@ -39,6 +42,9 @@ class EditFragment constructor(
     @BindView(R.id.txt_task_done)
     lateinit var btnTaskDone: TextView
 
+    @BindView(R.id.layout_container)
+    lateinit var layoutContainer : ConstraintLayout
+
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -58,6 +64,12 @@ class EditFragment constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         ButterKnife.bind(this, view)
+
+        // Adjust theme change
+        val nightModeFlags = view.context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+            layoutContainer.setBackgroundColor(ContextCompat.getColor(view.context, R.color.black_light))
+        }
 
         val animation: Animation = AnimationUtils.loadAnimation(activity, R.anim.fade_out)
         animation.duration = resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
