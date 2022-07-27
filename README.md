@@ -60,7 +60,3 @@ Click Run
 
 The app has default stub data. To remove the stub data. Goto TodoDatabase.kt
 app\src\main\java\com\todo\app\data\TodoDatabase.kt
-
-**SHORT REFLECTION**
-
-Developing the app is a learning experience for me. Most of the android projects I've been involved in were written in java. Kotlin is fairly new to me in android development, but I took it as a personal challenge to write the program for this to-do application entirely in kotlin. Doing so helped me to understand the language better and set me in a situation where I improved my skills.
